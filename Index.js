@@ -10,7 +10,7 @@ const uri = `mongodb+srv://${process.env.DB_user}:${process.env.DB_Password}@clu
 const app = express()
 app.use(bodyParser.json());
 app.use(cors())
-const port = 5000
+const port =process.env.PORT ||  5000
 
 
 app.get('/', (req, res) => {
