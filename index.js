@@ -10,7 +10,7 @@ const uri = `mongodb+srv://${process.env.DB_user}:${process.env.DB_Password}@clu
 const app = express()
 app.use(bodyParser.json());
 app.use(cors())
-const port =process.env.PORT ||  5000
+const port = process.env.PORT || 5000
 
 
 app.get('/', (req, res) => {
@@ -36,7 +36,7 @@ async function run() {
         // create a document to insert
 
 
-        /// Add New User
+        /// Add New Project
 
         app.post('/addProjects', async (req, res) => {
             const newData = req.body
@@ -46,9 +46,6 @@ async function run() {
             console.log('New user added', result)
             res.json(result)
         })
-
-
-
 
 
         //////// Get All Project and Display
@@ -69,7 +66,7 @@ async function run() {
             res.json(result)
         })
 
-        //////get Spacific user by ID
+        //////get Spacific Project by ID
 
         app.get('/projectCollection/:id', async (req, res) => {
             const id = req.params.id;
@@ -78,7 +75,7 @@ async function run() {
             res.send(users)
         })
 
-        ///Update user collection by id
+        ///Update Project collection by id
         app.put('/projectCollection/:id', async (req, res) => {
             const id = req.params.id;
             const UpdateUser = req.body
@@ -88,6 +85,7 @@ async function run() {
                 $set: {
                     name: UpdateUser.name,
                     link: UpdateUser.link,
+                     gitLink: UpdateUser.gitLink,
                     details: UpdateUser.details,
                     technology: UpdateUser.technology,
                     img: UpdateUser.img
@@ -110,19 +108,23 @@ async function run() {
 
         //////// Get All Testimonial and Display
 
+        // app.get('/testimonialCollection', async (req, res) => {
+        //     const cursor = testimonialCollection.find({});
+        //     const user = await cursor.toArray();
+        //     res.send(user);
+        // })
+
         app.get('/testimonialCollection', async (req, res) => {
             const cursor = testimonialCollection.find({});
             const user = await cursor.toArray();
             res.send(user);
         })
 
-
         /// Add New Skill
 
         app.post('/addSkill', async (req, res) => {
             const newData = req.body
-            const result = await skillCollection.insertOne(newData
-            );
+            const result = await skillCollection.insertOne(newData);
             console.log('New user found', req.body)
             console.log('New user added', result)
             res.json(result)
@@ -264,7 +266,7 @@ async function run() {
         })
 
 
-         ///////////////////////// Resume ////////////////////////////////////
+        ///////////////////////// Resume ////////////////////////////////////
         /// Add New Resume
 
         app.post('/addResume', async (req, res) => {
