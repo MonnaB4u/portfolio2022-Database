@@ -51,9 +51,9 @@ async function run() {
         //////// Get All Project and Display
 
         app.get('/projectCollection', async (req, res) => {
-            const cursor = projectCollection.find({});
+           const cursor = projectCollection.find({});
             const user = await cursor.toArray();
-            res.send(user);
+            res.send(user.reverse());
         })
 
 
@@ -166,7 +166,7 @@ async function run() {
         app.get('/allBlog', async (req, res) => {
             const cursor = blogCollection.find({});
             const user = await cursor.toArray();
-            res.send(user);
+            res.send(user.reverse());
         })
 
         ///// Delete One Blog
