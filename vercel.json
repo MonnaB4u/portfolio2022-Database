@@ -10,6 +10,14 @@
     {
       "src": "/(.*)",
       "dest": "/"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    },
+    {
+      "src": "/projectCollection(.*)",
+      "dest": "/projectCollection"
     }
   ]
 }
