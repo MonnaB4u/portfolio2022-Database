@@ -7,17 +7,6 @@
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    },
-    {
-      "src": "/projectCollection(.*)",
-      "dest": "/projectCollection"
-    }
-  ]
+    { "src": "/api/unicorn", "dest": "index.js" }
+]
 }
